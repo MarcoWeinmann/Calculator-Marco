@@ -8,96 +8,48 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-<style>
+<script>
 
-    body {
-        font-family: 'Roboto Slab', serif;
-        margin: 0;
+    function appendOperation(operation){
+        document.getElementById('resultArea').innerHTML += operation;
     }
-
-    table {
-        width: 100%;
-        height: 70vh;
-        background-color: rgb(50, 50, 50);
-        color: rgb(0, 0, 0);
-    }
-
-td {
-    width: 25%;
-    text-align: center;
-    background-color: rgb(28, 162, 16);
-    font-size: 34px;
-}
-
-td:hover {
-    background-color: rgb(32, 219, 15);
-    cursor: pointer;
-}
-
-#resultArea {
-    height: 30vh;
-    background-color: rgb(32, 219, 15);
-    color: black;
-    font-size: 64px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding: 24px;
-    box-sizing: border-box;
-}
-
-#result {
-    background-color: rgb(44, 152, 154)
-}
-
-#result:hover {
-    background-color: rgb(114, 190, 192)
-}
-
-.highlight {
-    background-color: rgb(38, 200, 9)
-}
-
-
-</style>
+</script>
 
 </head>
 
 <body>
-    <div id="resultArea">
-        1234
-
-    </div>
+    <div id="resultArea"></div>
 
    <table>
        <tr>
 
-        <td>7</td>
-        <td>8</td>
-        <td>9</td>
-        <td class="highlight">/</td>
+        <td onclick="appendOperation(7)">7</td>
+        <td onclick="appendOperation(8)">8</td>
+        <td onclick="appendOperation(9)">9</td>
+        <td onclick="appendOperation(' / ')" class="highlight">/</td>
        </tr>
 
        <tr>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-        <td class="highlight">x</td>
+        <td onclick="appendOperation(4)">4</td>
+        <td onclick="appendOperation(5)">5</td>
+        <td onclick="appendOperation(6)">6</td>
+        <td onclick="appendOperation(' * ')" class="highlight">x</td>
        </tr>
 
        <tr>
-           <td>1</td>
-           <td>2</td>
-           <td>3</td>
-           <td class="highlight">+</td>
+           <td onclick="appendOperation(1)">1</td>
+           <td onclick="appendOperation(2)">2</td>
+           <td onclick="appendOperation(3)">3</td>
+           <td onclick="appendOperation(' + ')" class="highlight">+</td>
        </tr>
 
        <tr>
-           <td>0</td>
-           <td>,</td>
+           <td onclick="appendOperation(0)"td>0</td>
+           <td onclick="appendOperation('.')"td>,</td>
            <td id="result">=</td>
-           <td class="highlight">-</td>
+           <td onclick="appendOperation(' - ')"td class="highlight">-</td>
        </tr>
    </table>
 </body>
