@@ -9,12 +9,28 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.webmanifest">
 
 <script>
 
     function appendOperation(operation){
         document.getElementById('resultArea').innerHTML += operation;
     }
+
+    function calculateResult() {
+        let container = document.getElementById('resultArea');
+        let result = eval(container.innerHTML);
+        container.innerHTML = result;
+    }
+
+    function deletelast() {
+        let container = document.getElementById('resultArea');
+        if (container.innerHTML.endsWith(' ')) {
+            container.innerHTML = container.innerHTML.slice(0, -3); 
+        } else {
+        container.innerHTML = container.innerHTML.slice(0, -1);
+    }
+}
 </script>
 
 </head>
@@ -23,6 +39,13 @@
     <div id="resultArea"></div>
 
    <table>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td onclick="deletelast()">DEL</td>
+    </tr>
+
        <tr>
 
         <td onclick="appendOperation(7)">7</td>
@@ -48,7 +71,7 @@
        <tr>
            <td onclick="appendOperation(0)"td>0</td>
            <td onclick="appendOperation('.')"td>,</td>
-           <td id="result">=</td>
+           <td onclick="calculateResult()" id="result">=</td>
            <td onclick="appendOperation(' - ')"td class="highlight">-</td>
        </tr>
    </table>
